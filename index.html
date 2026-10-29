@@ -867,31 +867,28 @@ SOLICITAÇÃO DE ATENDIMENTO
         dueDate: values.get('dueDate'),
         note: values.get('message').trim()
       };
-      const message = [
-        '👋 Olá! Gostaria de solicitar a instalação de internet da *DJD Telecom*.',
-        '',
-        '📋 *MEUS DADOS*',
-        '',
-        '👤 Nome: ' + lead.name,
-        '🪪 CPF: ' + lead.cpf,
-        '📱 Telefone: ' + lead.phone,
-        '📧 E-mail: ' + lead.email,
-        '',
-        '📍 *ENDEREÇO DE INSTALAÇÃO*',
-        '',
-        '🏠 Endereço: ' + lead.address,
-        '',
-        '🌐 *PLANO ESCOLHIDO*',
-        '',
-        '📶 Plano: ' + lead.plan,
-        '💰 Mensalidade: ' + lead.monthly,
-        '📅 Dia de vencimento: Dia ' + lead.dueDate,
-        lead.note ? '💬 Mensagem: ' + lead.note : '',
-        '',
-        '━━━━━━━━━━━━━━━',
-        '',
-        'Aguardo o contato para confirmar os dados e combinar a instalação. Obrigado! 😊'
-      ].filter((line, index, lines) => line !== '' || (index > 0 && lines[index - 1] !== '')).join('\n');
+      const message = `👋 Olá! Gostaria de solicitar a instalação de internet da *DJD Telecom*.
+
+📋 *MEUS DADOS*
+
+👤 Nome: ${lead.name}
+🪪 CPF: ${lead.cpf}
+📱 Telefone: ${lead.phone}
+📧 E-mail: ${lead.email}
+
+📍 *ENDEREÇO DE INSTALAÇÃO*
+
+🏠 Endereço: ${lead.address}
+
+🌐 *PLANO ESCOLHIDO*
+
+📶 Plano: ${lead.plan}
+💰 Mensalidade: ${lead.monthly}
+📅 Dia de vencimento: Dia ${lead.dueDate}${lead.note ? `\n💬 Mensagem: ${lead.note}` : ''}
+
+━━━━━━━━━━━━━━━
+
+Aguardo o contato para confirmar os dados e combinar a instalação. Obrigado! 😊`;
 
       feedback.textContent = 'O WhatsApp foi aberto com sua solicitação. Confira os dados e envie a mensagem para concluir.';
       feedback.classList.remove('hidden');

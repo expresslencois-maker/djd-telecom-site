@@ -648,8 +648,8 @@ SOLICITAÇÃO DE ATENDIMENTO
 <label class="block text-sm font-semibold text-on-surface mb-2" for="leadPlan">Plano desejado</label>
 <select class="w-full rounded-xl bg-[#0f172a] border border-outline-variant/50 px-4 py-3 text-on-surface focus:border-secondary-container focus:ring-1 focus:ring-secondary-container" id="leadPlan" name="plan" required>
 <option value="" selected disabled>Selecione um plano</option>
-<option value="Residencial - R$ 69,90">Residencial - R$ 69,90</option>
-<option value="Empresarial - consultar opções">Empresarial - consultar opções</option>
+<option value="Plano Residencial" data-monthly="R$ 69,90">Residencial - R$ 69,90</option>
+<option value="Plano Empresarial" data-monthly="A consultar">Empresarial - consultar opções</option>
 </select>
 </div>
 <div>
@@ -855,18 +855,43 @@ SOLICITAÇÃO DE ATENDIMENTO
 
       cpfInput.setCustomValidity('');
       const values = new FormData(form);
+      const selectedPlan = form.elements.plan.selectedOptions[0];
+      const lead = {
+        name: values.get('name').trim(),
+        cpf: cpfInput.value,
+        phone: values.get('phone').trim(),
+        email: values.get('email').trim(),
+        address: values.get('address').trim(),
+        plan: values.get('plan'),
+        monthly: selectedPlan.dataset.monthly,
+        dueDate: values.get('dueDate'),
+        note: values.get('message').trim()
+      };
       const message = [
-        'Solicitação de instalação - DJD Telecom',
+        '👋 Olá! Gostaria de solicitar a instalação de internet da *DJD Telecom*.',
         '',
-        'Nome: ' + values.get('name').trim(),
-        'CPF: ' + cpfInput.value,
-        'Telefone: ' + values.get('phone').trim(),
-        'E-mail: ' + values.get('email').trim(),
-        'Endereço: ' + values.get('address').trim(),
-        'Plano desejado: ' + values.get('plan'),
-        'Dia de vencimento preferido: ' + values.get('dueDate'),
-        values.get('message').trim() ? 'Mensagem: ' + values.get('message').trim() : ''
-      ].filter(Boolean).join('\n');
+        '📋 *MEUS DADOS*',
+        '',
+        '👤 Nome: ' + lead.name,
+        '🪪 CPF: ' + lead.cpf,
+        '📱 Telefone: ' + lead.phone,
+        '📧 E-mail: ' + lead.email,
+        '',
+        '📍 *ENDEREÇO DE INSTALAÇÃO*',
+        '',
+        '🏠 Endereço: ' + lead.address,
+        '',
+        '🌐 *PLANO ESCOLHIDO*',
+        '',
+        '📶 Plano: ' + lead.plan,
+        '💰 Mensalidade: ' + lead.monthly,
+        '📅 Dia de vencimento: Dia ' + lead.dueDate,
+        lead.note ? '💬 Mensagem: ' + lead.note : '',
+        '',
+        '━━━━━━━━━━━━━━━',
+        '',
+        'Aguardo o contato para confirmar os dados e combinar a instalação. Obrigado! 😊'
+      ].filter((line, index, lines) => line !== '' || (index > 0 && lines[index - 1] !== '')).join('\n');
 
       feedback.textContent = 'O WhatsApp foi aberto com sua solicitação. Confira os dados e envie a mensagem para concluir.';
       feedback.classList.remove('hidden');

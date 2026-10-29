@@ -208,6 +208,16 @@
       color: #fff;
       font-size: 0.875rem;
     }
+    .wallpaper-section {
+      background-image:
+        linear-gradient(rgba(8, 12, 24, 0.82), rgba(8, 12, 24, 0.88)),
+        repeating-linear-gradient(0deg, transparent 0 43px, rgba(65, 105, 255, 0.12) 44px, transparent 45px),
+        var(--section-wallpaper);
+      background-size: cover, auto, cover;
+      background-position: center;
+      background-blend-mode: normal, screen, normal;
+      border-radius: 1.75rem;
+    }
     @media (max-width: 380px) {
       header .brand-logo-crop {
         width: 76px;
@@ -305,7 +315,7 @@
 <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
 <main class="relative z-10 pt-24">
 <!-- ==================== 1. HERO SECTION ==================== -->
-<section class="relative max-w-7xl mx-auto px-4 md:px-8 py-16 lg:py-24 flex flex-col items-center text-center" id="hero">
+<section class="wallpaper-section relative max-w-7xl mx-auto px-4 md:px-8 py-16 lg:py-24 flex flex-col items-center text-center" id="hero" style="--section-wallpaper: url('net.png')">
 <!-- Pulsing Licensing Badge -->
 <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface-container-low/90 border border-secondary-container/30 text-secondary-container text-label-sm font-label-sm backdrop-blur-md mb-8 shadow-[0_0_15px_rgba(0,210,255,0.2)]">
 <span class="relative flex h-2.5 w-2.5">
@@ -397,7 +407,7 @@
 </section>
 <!-- ==================== 3. SEÇÃO DE COBERTURA ==================== -->
 <section class="relative max-w-7xl mx-auto px-4 md:px-8 py-20" id="cobertura">
-<div class="rounded-3xl bg-surface-container-low/70 border border-outline-variant/30 p-8 md:p-12 backdrop-blur-xl relative overflow-hidden">
+<div class="wallpaper-section border border-outline-variant/30 p-8 md:p-12 backdrop-blur-xl relative overflow-hidden" style="--section-wallpaper: url('ttt.jpg')">
 <!-- Subtle Neon Glow Corner -->
 <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none"></div>
 <div class="bg-surface-container/60 p-6 md:p-8 rounded-2xl border border-outline-variant/30">
@@ -409,56 +419,31 @@
 São Luís - MA
 </span>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-6 gap-4" id="coverageAreas">
-<div class="group flex flex-col rounded-2xl border-2 border-[#4169ff] bg-[#292929]/95 p-3 shadow-[0_0_22px_rgba(65,105,255,0.2)] hover:shadow-[0_0_32px_rgba(65,105,255,0.45)] transition-all duration-200 md:col-span-2">
-<div class="w-full rounded-lg bg-[#385cff] py-2 px-3 text-center text-sm font-extrabold text-white"><span class="inline-flex items-center justify-center gap-2"><span class="material-symbols-outlined text-base">location_city</span>Centro</span></div>
-<ul class="w-full pt-4 space-y-1 text-center">
-<li class="coverage-neighborhood">Praia Grande</li>
-<li class="coverage-neighborhood">Desterro</li>
-<li class="coverage-neighborhood">Projeto Reviver</li>
-<li class="coverage-neighborhood">Centro Histórico</li>
-</ul>
-</div>
-<div class="group flex flex-col rounded-2xl border-2 border-[#4169ff] bg-[#292929]/95 p-3 shadow-[0_0_22px_rgba(65,105,255,0.2)] hover:shadow-[0_0_32px_rgba(65,105,255,0.45)] transition-all duration-200 md:col-span-2">
-<div class="w-full rounded-lg bg-[#385cff] py-2 px-3 text-center text-sm font-extrabold text-white"><span class="inline-flex items-center justify-center gap-2"><span class="material-symbols-outlined text-base">north</span>Zona Norte</span></div>
-<ul class="w-full pt-4 space-y-1 text-center">
+<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2 text-left" id="coverageAreas">
 <li class="coverage-neighborhood">Anil</li>
-<li class="coverage-neighborhood">Turu</li>
-<li class="coverage-neighborhood">Cohab</li>
-<li class="coverage-neighborhood">Vinhais</li>
-<li class="coverage-neighborhood">Jardim São Cristóvão</li>
 <li class="coverage-neighborhood">Aurora</li>
-</ul>
-</div>
-<div class="group flex flex-col rounded-2xl border-2 border-[#4169ff] bg-[#292929]/95 p-3 shadow-[0_0_22px_rgba(65,105,255,0.2)] hover:shadow-[0_0_32px_rgba(65,105,255,0.45)] transition-all duration-200 md:col-span-2">
-<div class="w-full rounded-lg bg-[#385cff] py-2 px-3 text-center text-sm font-extrabold text-white"><span class="inline-flex items-center justify-center gap-2"><span class="material-symbols-outlined text-base">south</span>Zona Sul</span></div>
-<ul class="w-full pt-4 space-y-1 text-center">
 <li class="coverage-neighborhood">Calhau</li>
-<li class="coverage-neighborhood">Ponta D'Areia</li>
-<li class="coverage-neighborhood">São Francisco</li>
-<li class="coverage-neighborhood">Renascença</li>
-<li class="coverage-neighborhood">Olho D'Água</li>
-</ul>
-</div>
-<div class="group flex flex-col rounded-2xl border-2 border-[#4169ff] bg-[#292929]/95 p-3 shadow-[0_0_22px_rgba(65,105,255,0.2)] hover:shadow-[0_0_32px_rgba(65,105,255,0.45)] transition-all duration-200 md:col-span-2 md:col-start-2">
-<div class="w-full rounded-lg bg-[#385cff] py-2 px-3 text-center text-sm font-extrabold text-white"><span class="inline-flex items-center justify-center gap-2"><span class="material-symbols-outlined text-base">east</span>Zona Leste</span></div>
-<ul class="w-full pt-4 space-y-1 text-center">
+<li class="coverage-neighborhood">Centro Histórico</li>
 <li class="coverage-neighborhood">Cidade Operária</li>
-<li class="coverage-neighborhood">São Bernardo</li>
+<li class="coverage-neighborhood">Cohab</li>
+<li class="coverage-neighborhood">Desterro</li>
 <li class="coverage-neighborhood">Forquilha</li>
-<li class="coverage-neighborhood">Maiobão</li>
-</ul>
-</div>
-<div class="group flex flex-col rounded-2xl border-2 border-[#4169ff] bg-[#292929]/95 p-3 shadow-[0_0_22px_rgba(65,105,255,0.2)] hover:shadow-[0_0_32px_rgba(65,105,255,0.45)] transition-all duration-200 md:col-span-2 md:col-start-4">
-<div class="w-full rounded-lg bg-[#385cff] py-2 px-3 text-center text-sm font-extrabold text-white"><span class="inline-flex items-center justify-center gap-2"><span class="material-symbols-outlined text-base">west</span>Zona Oeste</span></div>
-<ul class="w-full pt-4 space-y-1 text-center">
-<li class="coverage-neighborhood">Vila Palmeira</li>
+<li class="coverage-neighborhood">Jardim São Cristóvão</li>
 <li class="coverage-neighborhood">João Paulo</li>
 <li class="coverage-neighborhood">Liberdade</li>
+<li class="coverage-neighborhood">Maiobão</li>
 <li class="coverage-neighborhood">Monte Castelo</li>
+<li class="coverage-neighborhood">Olho D'Água</li>
+<li class="coverage-neighborhood">Ponta D'Areia</li>
+<li class="coverage-neighborhood">Praia Grande</li>
+<li class="coverage-neighborhood">Projeto Reviver</li>
+<li class="coverage-neighborhood">Renascença</li>
+<li class="coverage-neighborhood">São Bernardo</li>
+<li class="coverage-neighborhood">São Francisco</li>
+<li class="coverage-neighborhood">Turu</li>
+<li class="coverage-neighborhood">Vila Palmeira</li>
+<li class="coverage-neighborhood">Vinhais</li>
 </ul>
-</div>
-</div>
 <p class="mt-4 text-xs text-on-surface-variant">A cobertura pode variar por rua e número. Entre em contato para confirmar o atendimento no seu endereço.</p>
 <!-- Footer Note inside Card -->
 <div class="mt-6 pt-4 border-t border-outline-variant/20 flex items-center justify-between text-xs text-on-surface-variant">
@@ -554,7 +539,7 @@ São Luís - MA
 </div>
 </section>
 <!-- ==================== 6. SEÇÃO DE DÚVIDAS FREQUENTES (FAQ) ==================== -->
-<section class="relative max-w-5xl mx-auto px-4 md:px-8 py-20" id="duvidas">
+<section class="wallpaper-section relative max-w-5xl mx-auto px-4 md:px-8 py-20" id="duvidas" style="--section-wallpaper: url('1.png')">
 <div class="text-center mb-12">
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/40 text-secondary text-label-sm font-label-sm mb-3">
 <span class="material-symbols-outlined text-sm" data-icon="help">help</span>

@@ -207,16 +207,22 @@
       padding: 0.25rem 0.5rem;
       color: #fff;
       font-size: 0.875rem;
+      text-align: center;
     }
     .wallpaper-section {
-      background-image:
-        linear-gradient(rgba(8, 12, 24, 0.82), rgba(8, 12, 24, 0.88)),
-        repeating-linear-gradient(0deg, transparent 0 43px, rgba(65, 105, 255, 0.12) 44px, transparent 45px),
-        var(--section-wallpaper);
-      background-size: cover, auto, cover;
+      isolation: isolate;
+    }
+    .wallpaper-section::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 50%;
+      z-index: -1;
+      width: 100vw;
+      transform: translateX(-50%);
+      background-image: linear-gradient(rgba(8, 12, 24, 0.78), rgba(8, 12, 24, 0.86)), var(--section-wallpaper);
+      background-size: cover;
       background-position: center;
-      background-blend-mode: normal, screen, normal;
-      border-radius: 1.75rem;
+      pointer-events: none;
     }
     @media (max-width: 380px) {
       header .brand-logo-crop {
@@ -315,7 +321,7 @@
 <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
 <main class="relative z-10 pt-24">
 <!-- ==================== 1. HERO SECTION ==================== -->
-<section class="wallpaper-section relative max-w-7xl mx-auto px-4 md:px-8 py-16 lg:py-24 flex flex-col items-center text-center" id="hero" style="--section-wallpaper: url('net.png')">
+<section class="wallpaper-section relative max-w-7xl mx-auto px-4 md:px-8 py-16 lg:py-24 flex flex-col items-center text-center" id="hero" style="--section-wallpaper: url('screen.png')">
 <!-- Pulsing Licensing Badge -->
 <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface-container-low/90 border border-secondary-container/30 text-secondary-container text-label-sm font-label-sm backdrop-blur-md mb-8 shadow-[0_0_15px_rgba(0,210,255,0.2)]">
 <span class="relative flex h-2.5 w-2.5">
@@ -406,8 +412,8 @@
 <p class="mt-5 text-center text-xs text-on-surface-variant">Planos sem fidelidade. Valores e disponibilidade sujeitos a consulta.</p>
 </section>
 <!-- ==================== 3. SEÇÃO DE COBERTURA ==================== -->
-<section class="relative max-w-7xl mx-auto px-4 md:px-8 py-20" id="cobertura">
-<div class="wallpaper-section border border-outline-variant/30 p-8 md:p-12 backdrop-blur-xl relative overflow-hidden" style="--section-wallpaper: url('ttt.jpg')">
+<section class="wallpaper-section relative max-w-7xl mx-auto px-4 md:px-8 py-20" id="cobertura" style="--section-wallpaper: url('net.png')">
+<div class="max-w-7xl mx-auto border border-outline-variant/30 p-8 md:p-12 backdrop-blur-xl relative overflow-hidden rounded-3xl">
 <!-- Subtle Neon Glow Corner -->
 <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none"></div>
 <div class="bg-surface-container/60 p-6 md:p-8 rounded-2xl border border-outline-variant/30">
@@ -419,7 +425,7 @@
 São Luís - MA
 </span>
 </div>
-<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2 text-left" id="coverageAreas">
+<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center gap-x-8 gap-y-2 text-center" id="coverageAreas">
 <li class="coverage-neighborhood">Anil</li>
 <li class="coverage-neighborhood">Aurora</li>
 <li class="coverage-neighborhood">Calhau</li>
@@ -501,7 +507,7 @@ São Luís - MA
 </div>
 </section>
 <!-- ==================== 5. SEÇÃO POR QUE ESCOLHER A DJD TELECOM ==================== -->
-<section class="relative max-w-7xl mx-auto px-4 md:px-8 py-20" id="vantagens">
+<section class="wallpaper-section relative max-w-7xl mx-auto px-4 md:px-8 py-20" id="vantagens" style="--section-wallpaper: url('1.png')">
 <div class="text-center max-w-3xl mx-auto mb-16">
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/40 text-secondary text-label-sm font-label-sm mb-3">
 <span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
@@ -539,7 +545,7 @@ São Luís - MA
 </div>
 </section>
 <!-- ==================== 6. SEÇÃO DE DÚVIDAS FREQUENTES (FAQ) ==================== -->
-<section class="wallpaper-section relative max-w-5xl mx-auto px-4 md:px-8 py-20" id="duvidas" style="--section-wallpaper: url('1.png')">
+<section class="relative max-w-5xl mx-auto px-4 md:px-8 py-20" id="duvidas">
 <div class="text-center mb-12">
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/40 text-secondary text-label-sm font-label-sm mb-3">
 <span class="material-symbols-outlined text-sm" data-icon="help">help</span>
